@@ -1,0 +1,17 @@
+3a4
+> 
+191,204d191
+< template<typename TYPE, typename COMP>
+< const TYPE &fib_heap<TYPE, COMP>::get_min() const {
+<     return (*min)->value;
+< }
+< 
+< template<typename TYPE, typename COMP>
+< unsigned int fib_heap<TYPE, COMP>::size() const {
+<     return this->n;
+< }
+< 
+< template<typename TYPE, typename COMP>
+< bool fib_heap<TYPE, COMP>::empty() const {
+<     return (this->n == 0);
+< }
