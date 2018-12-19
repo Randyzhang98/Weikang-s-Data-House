@@ -1,35 +1,34 @@
 #ifndef PLAYGROUND
 #define PLAYGROUND
 
-
-
-#include <vector>
-// #include <unordered_map>
 #include <queue>
-#include <set>
+#include <unordered_map>
+#include <sstream>
 #include <map>
-#include <memory>
+#include <vector>
 #include <string>
+#include <memory>
+#include <set>
 
-
-// using std::unordered_map;
+using std::unordered_map;
 using std::map;
-using std::multimap;
 using std::string;
 using std::priority_queue;
 using std::vector;
-// using std::move;
 using std::set;
 using std::cout;
 using std::endl;
 using std::min;
+using std::cin;
+using std::stringstream;
+using std::move;
 
 class playground_t
 {
     private:
-        struct client_t
+        struct order_t
         {
-            //typedef std::shared_ptr<client_t> Ptr;
+            //typedef std::shared_ptr<order_t> Ptr;
             unsigned id;
             unsigned time_stamp;
             string name;
@@ -37,7 +36,7 @@ class playground_t
             unsigned price;
             unsigned quantity;
             int duration;
-            client_t(unsigned id, unsigned time_stamp, string name, 
+            order_t(unsigned id, unsigned time_stamp, string name, 
                     string equity, unsigned price, unsigned quantity, int duration): 
                     id(id), time_stamp(time_stamp), name((name)), equity((equity)), 
                     price(price), quantity(quantity), duration(duration) {}
@@ -45,7 +44,7 @@ class playground_t
 
         struct smaller_t // this part need much more concern 
         {
-            bool operator() (const client_t &a, const client_t &b) const
+            bool operator() (const order_t &a, const order_t &b) const
             {
                 if (a.price == b.price)
                 {
@@ -57,7 +56,7 @@ class playground_t
 
         struct greater_t
         {
-            bool operator() (const client_t &a, const client_t &b) const
+            bool operator() (const order_t &a, const order_t &b) const
             {
                 if (a.price == b.price)
                 {
@@ -67,10 +66,10 @@ class playground_t
             }
         };  
 
-        struct trader_t
+        struct waiting_list_t
         {
-            priority_queue <client_t, vector<client_t>, greater_t> buyers;
-            priority_queue <client_t, vector<client_t>, smaller_t> sellers;
+            priority_queue <order_t, vector<order_t>, greater_t> buyers;
+            priority_queue <order_t, vector<order_t>, smaller_t> sellers;
         };
 
         struct price_median_t
@@ -78,8 +77,8 @@ class playground_t
             unsigned number_of_elements;
             price_median_t(): number_of_elements(0) {}
             // L12 P39 median maintainese
-            priority_queue <unsigned, vector<unsigned>, std::greater<unsigned> > max_heap;
-            priority_queue <unsigned, vector<unsigned>, std::less<unsigned> > min_heap;
+            priority_queue <unsigned, vector<unsigned>, std::less<unsigned> > max_heap;
+            priority_queue <unsigned, vector<unsigned>, std::greater<unsigned> > min_heap;
             void insert(unsigned in)
             {
                 if ( number_of_elements % 2 == 1 )
@@ -148,7 +147,7 @@ class playground_t
             vector<ttt_holder_t> traders;
         };
 
-        map<string, trader_t> traders_in_goods;
+        unordered_map<string, waiting_list_t> traders_in_goods;
 
         set<string> equity_list; //goods name
 
@@ -158,7 +157,9 @@ class playground_t
 
         //ttt part remains to be filled.
 
-        map<string,ttt_holder_list_t> ttt_list;
+        vector <string> ttt_name_list;
+
+        unordered_map<string,ttt_holder_list_t> ttt_list;
 
         bool verbose_flag = false;
         bool median_flag = false;
@@ -168,29 +169,23 @@ class playground_t
 
         unsigned playground_income = 0, overall_money_tranfered = 0, num_completed_trade = 0, num_shared_equity = 0;
 
-        void transfersPrint()
-        {
-            for (auto & temp : transfers_info_list)
-            {
-                cout << temp.first << " bought " << temp.second.num_bought << " and sold " << temp.second.num_sold << " for a net transfer of $" << temp.second.net_income << endl;
-            }
-        }
+        
+        // void plot_simple_trader_holder(const ttt_holder_t & it)
+        // {
+        //     cout << "The ttt_holder_t is ";
+        //     cout << "of id:" << it.id;
+        //     cout << " of time_stamp:" << it.time_stamp;
+        //     cout << " is a buyer:" << it.trader_is_buyer << endl;
+        // }
         
   
         playground_t() = default;
     public:
-        unsigned current_time_stamp = 0;
+        
         //playground_t() = default;
         ~playground_t() = default;
         //playground_t &operator;
-        //some default operation remains to be deleted;
-
-        void ttt_holder_adder (string input)
-        {
-            // cout << 111 << endl;
-            ttt_holder_list_t ept_ttt;
-            ttt_list[input] = ept_ttt;
-        }
+        //some default operation remains to be deleted;       
 
         static playground_t & getInstance()
         {
@@ -198,33 +193,27 @@ class playground_t
             return playground;
         }
 
-        void setFlag(const bool &v_flag, const bool &m_flag, const bool &mid_flag, const bool &tran_flag, const bool &t_flag)
+        void ttt_holder_adder (string input)
         {
-            verbose_flag = v_flag;
-            median_flag = m_flag;
-            midpoint_flag = mid_flag;
-            transfers_flag = tran_flag;
-            ttt_flag = t_flag;
+            // cout << 111 << endl;
+            ttt_holder_list_t ept_ttt;
+            ttt_list[input] = ept_ttt;
+            ttt_name_list.emplace_back(input);
         }
+
+        void transfersPrint()
+        {
+            for (auto & temp : transfers_info_list)
+            {
+                cout << temp.first << " bought " << temp.second.num_bought << " and sold " << temp.second.num_sold << " for a net transfer of $" << temp.second.net_income << endl;
+            }
+        }
+        unsigned current_time_stamp = 0;
+
         
         void buyerPart (unsigned id, unsigned time_stamp, string name, string equity, unsigned price, unsigned number_of_elements, int duration)
         {
-            if (ttt_flag) 
-            {   
-                if (ttt_list.find(equity) != ttt_list.end() )
-                {
-                    ttt_holder_t in(id, price, time_stamp, true);
-                    ttt_list[equity].traders.emplace_back(in);
-                }
-               
-            }
-            if(midpoint_flag) 
-            {
-                if (equity_list.find(equity) == equity_list.end())
-                {
-                    equity_list.insert(equity);
-                }
-            }
+            
             
             // auto iter = traders_in_goods.find(equity);
             // if (iter == traders_in_goods.end())
@@ -232,12 +221,13 @@ class playground_t
             //     traders_in_goods
             // }
 
-            trader_t & this_field = traders_in_goods[equity];
+            waiting_list_t & this_field = traders_in_goods[equity];
 
             while (!this_field.sellers.empty() && number_of_elements > 0)
             {
-                const client_t & temp = this_field.sellers.top();
-                if ( temp.duration > 0 && current_time_stamp >= temp.duration + temp.time_stamp)
+                // cout << "a12731273sadguyasgduyasgfuyagsduyg" << endl;
+                const order_t & temp = this_field.sellers.top();
+                if ( temp.duration > 0 && (current_time_stamp >= temp.duration + temp.time_stamp) )
                 {
                     this_field.sellers.pop();
                     continue;
@@ -251,7 +241,7 @@ class playground_t
                 unsigned trading_fees = transfered_money / 100;
                 unsigned finished_price = temp.price;// seller decieded the price in final
 
-                client_t insert_item = temp;
+                order_t insert_item = temp;
                 
                 insert_item.quantity -= num_dealt_goods;
                 number_of_elements -= num_dealt_goods;
@@ -284,7 +274,7 @@ class playground_t
             }
             if (number_of_elements > 0 && duration != 0)
             {
-                client_t input( id, time_stamp, name, equity, price, number_of_elements, duration );
+                order_t input( id, time_stamp, name, equity, price, number_of_elements, duration );
                 this_field.buyers.emplace( input);
             }
 
@@ -292,34 +282,19 @@ class playground_t
 
         void sellerPart (unsigned id, unsigned time_stamp, string name, string equity, unsigned price, unsigned number_of_elements, int duration)
         {
-            if (ttt_flag) 
-            {   
-                if (ttt_list.find(equity) != ttt_list.end() )
-                {
-                    ttt_holder_t in(id, price, time_stamp, false);
-                    ttt_list[equity].traders.emplace_back(in);
-                }
-                
-            }
-            if(midpoint_flag) 
-            {
-                if (equity_list.find(equity) == equity_list.end())
-                {
-                    equity_list.insert(equity);
-                }
-            }
-          
             // auto iter = traders_in_goods.find(equity);
             // if (iter == traders_in_goods.end())
             // {
             //     traders_in_goods
             // }
 
-            trader_t & this_field = traders_in_goods[equity];
+            waiting_list_t & this_field = traders_in_goods[equity];
+            // cout << "transfer_flag is " << transfers_flag << endl;
 
             while (!this_field.buyers.empty() && number_of_elements > 0)
             {
-                const client_t & temp = this_field.buyers.top();
+                // cout << "1121387218371298379123" << endl;
+                const order_t & temp = this_field.buyers.top();
                 if ( temp.duration > 0 && (current_time_stamp >= temp.duration + temp.time_stamp) )
                 {
                     this_field.buyers.pop();
@@ -334,7 +309,7 @@ class playground_t
                 unsigned trading_fees = transfered_money / 100;
                 unsigned finished_price = temp.price;// buyer decieded the price in final
 
-                client_t insert_item = temp;
+                order_t insert_item = temp;
                 
                 insert_item.quantity -= num_dealt_goods;
                 number_of_elements -= num_dealt_goods;
@@ -344,7 +319,8 @@ class playground_t
                 num_completed_trade ++;
                 num_shared_equity += num_dealt_goods;
 
-                
+                // cout << "num_dealt_goods is " << num_dealt_goods << endl;
+                // cout << " transfered_moeny is " << transfered_money << endl;
 
                 if (verbose_flag) 
                 {
@@ -368,7 +344,7 @@ class playground_t
             }
             if (number_of_elements > 0 && duration != 0)
             {
-                client_t input( id, time_stamp, name, equity, price, number_of_elements, duration );
+                order_t input( id, time_stamp, name, equity, price, number_of_elements, duration );
                 this_field.sellers.emplace( input);
             }
 
@@ -388,11 +364,11 @@ class playground_t
             {
                 auto &buyer = traders_in_goods[item].buyers;
                 auto &seller = traders_in_goods[item].sellers;
-                while (!buyer.empty() && buyer.top().duration > 0 && ( current_time_stamp >= buyer.top().duration + buyer.top().id)  )
+                while (!buyer.empty() && buyer.top().duration > 0 && ( current_time_stamp >= buyer.top().duration + buyer.top().time_stamp)  )
                 {
                     buyer.pop();
                 }
-                while (!seller.empty() && seller.top().duration > 0 && ( current_time_stamp >= seller.top().duration + seller.top().id)  )
+                while (!seller.empty() && seller.top().duration > 0 && ( current_time_stamp >= seller.top().duration + seller.top().time_stamp)  )
                 {
                     seller.pop();
                 }
@@ -400,7 +376,7 @@ class playground_t
                 cout << "Midpoint of " << item << " at time " << current_time_stamp << " is ";
                 if (buyer.empty() || seller.empty())
                 {
-                    cout << "undefined " << endl;
+                    cout << "undefined" << endl;
                 }
                 else 
                 {
@@ -409,12 +385,13 @@ class playground_t
             }
         }
 
-        void plot_simple_trader_holder(const ttt_holder_t & it)
+        void setFlag(const bool &v_flag, const bool &m_flag, const bool &mid_flag, const bool &tran_flag, const bool &t_flag)
         {
-            cout << "The ttt_holder_t is ";
-            cout << "of id:" << it.id;
-            cout << " of time_stamp:" << it.time_stamp;
-            cout << " is a buyer:" << it.trader_is_buyer << endl;
+            verbose_flag = v_flag;
+            median_flag = m_flag;
+            midpoint_flag = mid_flag;
+            transfers_flag = tran_flag;
+            ttt_flag = t_flag;
         }
 
         void stagement()
@@ -422,7 +399,7 @@ class playground_t
             string line;        
             stringstream line_buffer;
             unsigned id = 0;
-            while (getline(cin, line) && !line.empty() ) // could be replaced by while(!cin.eof())
+            while (std::getline(cin, line) && !line.empty() ) // could be replaced by while(!cin.eof())
             {
                 char special_char;
                 string name, op, equity;
@@ -438,13 +415,46 @@ class playground_t
                     if (midpoint_flag) this->midpointPrint();   //laster round trading summary
                     this->current_time_stamp = time_stamp;
                 }
-
+                if(midpoint_flag) 
+                {
+                    if (equity_list.find(equity) == equity_list.end())
+                    {
+                        equity_list.insert(equity);
+                    }
+                }
+                if (transfers_flag)
+                {
+                    if (transfers_info_list.find(name) == transfers_info_list.end() )
+                    {
+                        transfer_holder_t input;
+                        transfers_info_list[name] = input;
+                    }
+                }
                 if (op == "BUY")
                 {
+                    if (ttt_flag) 
+                    {   
+                        if (ttt_list.find(equity) != ttt_list.end() )
+                        {
+                            ttt_holder_t in(id, price, time_stamp, true);
+                            ttt_list[equity].traders.emplace_back(in);
+                        }
+                    }
+    
                     this->buyerPart(id, time_stamp, name, equity, price, number_of_elements, duration);
                 }
                 else 
                 {
+                    if (ttt_flag) 
+                    {   
+                        if (ttt_list.find(equity) != ttt_list.end() )
+                        {
+                            ttt_holder_t in(id, price, time_stamp, false);
+                            ttt_list[equity].traders.emplace_back(in);
+                        }
+                
+                    }
+                    
                     this->sellerPart ( id, time_stamp, name, equity, price, number_of_elements, duration );
                 }
                 id++;
@@ -462,64 +472,54 @@ class playground_t
             cout << "Number of Shares Traded: " << num_shared_equity << endl;
             if (transfers_flag)
             {
-                for (auto & item : transfers_info_list)
-                {
-                    cout << item.first << " bought " << item.second.num_bought << " and sold " << item.second.num_sold << " for a net transfer of $" << item.second.net_income << endl;
-                }
+                transfersPrint();
             }
             if (ttt_flag)
             {
-                cout << "tt_list's length is " << ttt_list.size() << endl;
-                for (auto iter = ttt_list.begin(); iter != ttt_list.end(); iter++)
+                // cout << "tt_list's length is " << ttt_list.size() << endl;
+                for (string & item : ttt_name_list)
                 {
-                    vector<ttt_holder_t> & all_traders = iter->second.traders;
-                    string equity_name = iter->first;
-                    bool matched_flag = false;
+                    vector<ttt_holder_t> & all_traders = ttt_list[item].traders;
+                    string equity_name = item;
+                    // bool matched_flag = false;
                     bool seller_exist = false;
                     int difference_of_price = -10700000;
                     int seller_claim_price = 107000000;
-                    unsigned time_stamp_1 = -1, time_stamp_2 = -1;
+                    int time_stamp_1 = -1, time_stamp_2 = -1, time_stamp_vic_1 = -1;
                     
-                    plot_simple_trader_holder (all_traders[1]);
+                    // plot_simple_trader_holder (all_traders[1]);
 
                     for (auto & it : all_traders)
                     {
                         if (it.trader_is_buyer == false) // this is seller's claim price stage;
                         {
                             seller_exist = true;
-                            if (it.price < seller_claim_price)
+                            if (  ((signed) it.price) < seller_claim_price)
                             {
-                                time_stamp_1 = it.time_stamp;
+                                time_stamp_vic_1 = it.time_stamp;
                                 seller_claim_price = it.price;
                             }
                         }
                         else // buyer
                         {
-                            if (seller_exist) matched_flag = true;
-                            if ( matched_flag && (signed)(it.price - seller_claim_price) > difference_of_price )
+                            //if (seller_exist) matched_flag = true;
+                            if ( seller_exist && (signed)(it.price - seller_claim_price) > difference_of_price )
                             {
+                                time_stamp_1 = time_stamp_vic_1;
                                 time_stamp_2 = it.time_stamp;
                                 difference_of_price = it.price - seller_claim_price;
                             }
                         }
                     }
+                    // if (time_stamp_2 == -1) time_stamp_1 = -1;
                     cout << "Time travelers would buy " << equity_name << " at time: " << time_stamp_1 << " and sell it at time: " << time_stamp_2 << '\n';
                 }
             }
         }
 
-
-
-
-
-
-
-
-
 };
 
-
-
-
 #endif
+
+
 

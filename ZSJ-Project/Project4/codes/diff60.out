@@ -1,0 +1,412 @@
+41c41
+< Midpoint of E_D at time 8 is $15
+---
+> Midpoint of E_D at time 8 is undefined
+130c130
+< Midpoint of E_D at time 30 is undefined
+---
+> Midpoint of E_D at time 30 is $15
+160c160
+< Midpoint of E_C at time 36 is undefined
+---
+> Midpoint of E_C at time 36 is $40
+172c172
+< Midpoint of E_C at time 37 is undefined
+---
+> Midpoint of E_C at time 37 is $40
+182c182
+< Midpoint of E_C at time 38 is undefined
+---
+> Midpoint of E_C at time 38 is $40
+192c192
+< Midpoint of E_C at time 40 is undefined
+---
+> Midpoint of E_C at time 40 is $27
+205,207c205,207
+< Midpoint of E_B at time 41 is undefined
+< Midpoint of E_C at time 41 is undefined
+< Midpoint of E_D at time 41 is undefined
+---
+> Midpoint of E_B at time 41 is $50
+> Midpoint of E_C at time 41 is $27
+> Midpoint of E_D at time 41 is $15
+258c258
+< Midpoint of E_C at time 48 is undefined
+---
+> Midpoint of E_C at time 48 is $37
+271c271
+< Midpoint of E_C at time 49 is undefined
+---
+> Midpoint of E_C at time 49 is $37
+315c315
+< Midpoint of E_E at time 53 is undefined
+---
+> Midpoint of E_E at time 53 is $30
+332c332
+< Midpoint of E_E at time 55 is undefined
+---
+> Midpoint of E_E at time 55 is $30
+346c346
+< Midpoint of E_E at time 56 is undefined
+---
+> Midpoint of E_E at time 56 is $30
+361c361
+< Midpoint of E_E at time 57 is undefined
+---
+> Midpoint of E_E at time 57 is $30
+364a365
+> C_e purchased 3 shares of E_E from C_e for $35/share
+369c370
+< Median match price of E_E at time 58 is $40
+---
+> Median match price of E_E at time 58 is $37
+375c376
+< Midpoint of E_D at time 58 is $15
+---
+> Midpoint of E_D at time 58 is undefined
+383c384
+< Median match price of E_E at time 61 is $40
+---
+> Median match price of E_E at time 61 is $37
+389c390
+< Midpoint of E_D at time 61 is $15
+---
+> Midpoint of E_D at time 61 is undefined
+397c398
+< Median match price of E_E at time 64 is $40
+---
+> Median match price of E_E at time 64 is $37
+411c412
+< Median match price of E_E at time 65 is $40
+---
+> Median match price of E_E at time 65 is $37
+427c428
+< Median match price of E_E at time 70 is $40
+---
+> Median match price of E_E at time 70 is $37
+436c437
+< Midpoint of E_G at time 70 is undefined
+---
+> Midpoint of E_G at time 70 is $22
+441c442
+< Median match price of E_E at time 72 is $40
+---
+> Median match price of E_E at time 72 is $37
+450c451
+< Midpoint of E_G at time 72 is undefined
+---
+> Midpoint of E_G at time 72 is $22
+456c457
+< Median match price of E_E at time 76 is $40
+---
+> Median match price of E_E at time 76 is $37
+470c471
+< Median match price of E_E at time 77 is $40
+---
+> Median match price of E_E at time 77 is $37
+484c485
+< Median match price of E_E at time 80 is $40
+---
+> Median match price of E_E at time 80 is $37
+498c499
+< Median match price of E_E at time 82 is $40
+---
+> Median match price of E_E at time 82 is $37
+504c505
+< Midpoint of E_D at time 82 is $15
+---
+> Midpoint of E_D at time 82 is undefined
+512c513
+< Median match price of E_E at time 83 is $40
+---
+> Median match price of E_E at time 83 is $37
+528c529
+< Median match price of E_E at time 87 is $40
+---
+> Median match price of E_E at time 87 is $37
+542c543
+< Median match price of E_E at time 89 is $40
+---
+> Median match price of E_E at time 89 is $37
+557c558
+< Median match price of E_E at time 90 is $40
+---
+> Median match price of E_E at time 90 is $37
+573c574
+< Median match price of E_E at time 92 is $40
+---
+> Median match price of E_E at time 92 is $37
+579c580
+< Midpoint of E_D at time 92 is $25
+---
+> Midpoint of E_D at time 92 is $15
+587c588
+< Median match price of E_E at time 93 is $40
+---
+> Median match price of E_E at time 93 is $37
+593c594
+< Midpoint of E_D at time 93 is undefined
+---
+> Midpoint of E_D at time 93 is $15
+601c602
+< Median match price of E_E at time 94 is $40
+---
+> Median match price of E_E at time 94 is $37
+605c606
+< Midpoint of E_B at time 94 is undefined
+---
+> Midpoint of E_B at time 94 is $50
+616c617
+< Median match price of E_E at time 95 is $40
+---
+> Median match price of E_E at time 95 is $37
+630c631
+< Median match price of E_E at time 97 is $40
+---
+> Median match price of E_E at time 97 is $37
+645c646
+< Median match price of E_E at time 98 is $40
+---
+> Median match price of E_E at time 98 is $37
+659c660
+< Median match price of E_E at time 99 is $40
+---
+> Median match price of E_E at time 99 is $37
+673c674
+< Median match price of E_E at time 100 is $40
+---
+> Median match price of E_E at time 100 is $37
+681c682
+< Midpoint of E_F at time 100 is undefined
+---
+> Midpoint of E_F at time 100 is $32
+688c689
+< Median match price of E_E at time 102 is $32
+---
+> Median match price of E_E at time 102 is $35
+702c703
+< Median match price of E_E at time 103 is $32
+---
+> Median match price of E_E at time 103 is $35
+719c720
+< Median match price of E_E at time 104 is $32
+---
+> Median match price of E_E at time 104 is $35
+733c734
+< Median match price of E_E at time 105 is $32
+---
+> Median match price of E_E at time 105 is $35
+747c748
+< Median match price of E_E at time 106 is $32
+---
+> Median match price of E_E at time 106 is $35
+762c763
+< Median match price of E_E at time 107 is $32
+---
+> Median match price of E_E at time 107 is $35
+769c770
+< Midpoint of E_E at time 107 is undefined
+---
+> Midpoint of E_E at time 107 is $30
+778c779
+< Median match price of E_E at time 108 is $37
+---
+> Median match price of E_E at time 108 is $35
+784c785
+< Midpoint of E_D at time 108 is $15
+---
+> Midpoint of E_D at time 108 is undefined
+792c793
+< Median match price of E_E at time 111 is $37
+---
+> Median match price of E_E at time 111 is $35
+798c799
+< Midpoint of E_D at time 111 is $15
+---
+> Midpoint of E_D at time 111 is undefined
+806c807
+< Median match price of E_E at time 114 is $37
+---
+> Median match price of E_E at time 114 is $35
+820c821
+< Median match price of E_E at time 115 is $37
+---
+> Median match price of E_E at time 115 is $35
+834c835
+< Median match price of E_E at time 117 is $37
+---
+> Median match price of E_E at time 117 is $35
+840c841
+< Midpoint of E_D at time 117 is $30
+---
+> Midpoint of E_D at time 117 is $25
+850c851
+< Median match price of E_E at time 120 is $37
+---
+> Median match price of E_E at time 120 is $35
+856c857
+< Midpoint of E_D at time 120 is $30
+---
+> Midpoint of E_D at time 120 is $25
+864c865
+< Median match price of E_E at time 121 is $37
+---
+> Median match price of E_E at time 121 is $35
+870c871
+< Midpoint of E_D at time 121 is $30
+---
+> Midpoint of E_D at time 121 is $25
+879c880
+< Median match price of E_E at time 126 is $37
+---
+> Median match price of E_E at time 126 is $35
+886c887
+< Midpoint of E_E at time 126 is $45
+---
+> Midpoint of E_E at time 126 is undefined
+893c894
+< Median match price of E_E at time 127 is $37
+---
+> Median match price of E_E at time 127 is $35
+900c901
+< Midpoint of E_E at time 127 is $45
+---
+> Midpoint of E_E at time 127 is undefined
+907c908
+< Median match price of E_E at time 130 is $37
+---
+> Median match price of E_E at time 130 is $35
+915c916
+< Midpoint of E_F at time 130 is $27
+---
+> Midpoint of E_F at time 130 is undefined
+921c922
+< Median match price of E_E at time 132 is $37
+---
+> Median match price of E_E at time 132 is $35
+929c930
+< Midpoint of E_F at time 132 is $27
+---
+> Midpoint of E_F at time 132 is undefined
+935c936
+< Median match price of E_E at time 133 is $37
+---
+> Median match price of E_E at time 133 is $35
+943c944
+< Midpoint of E_F at time 133 is $27
+---
+> Midpoint of E_F at time 133 is undefined
+1028,1030c1029,1031
+< Midpoint of E_B at time 144 is $50
+< Midpoint of E_C at time 144 is $27
+< Midpoint of E_D at time 144 is $25
+---
+> Midpoint of E_B at time 144 is undefined
+> Midpoint of E_C at time 144 is undefined
+> Midpoint of E_D at time 144 is undefined
+1042,1044c1043,1045
+< Midpoint of E_B at time 145 is $50
+< Midpoint of E_C at time 145 is $27
+< Midpoint of E_D at time 145 is $25
+---
+> Midpoint of E_B at time 145 is undefined
+> Midpoint of E_C at time 145 is undefined
+> Midpoint of E_D at time 145 is undefined
+1192c1193
+< Midpoint of E_D at time 158 is $15
+---
+> Midpoint of E_D at time 158 is undefined
+1206c1207
+< Midpoint of E_D at time 161 is $15
+---
+> Midpoint of E_D at time 161 is undefined
+1250c1251
+< Midpoint of E_D at time 170 is $30
+---
+> Midpoint of E_D at time 170 is $25
+1264c1265
+< Midpoint of E_D at time 172 is $30
+---
+> Midpoint of E_D at time 172 is $25
+1279,1280c1280,1281
+< Midpoint of E_D at time 176 is $30
+< Midpoint of E_E at time 176 is $45
+---
+> Midpoint of E_D at time 176 is $25
+> Midpoint of E_E at time 176 is undefined
+1282c1283
+< Midpoint of E_G at time 176 is $22
+---
+> Midpoint of E_G at time 176 is undefined
+1294c1295
+< Midpoint of E_E at time 177 is $45
+---
+> Midpoint of E_E at time 177 is undefined
+1308c1309
+< Midpoint of E_E at time 180 is $45
+---
+> Midpoint of E_E at time 180 is undefined
+1321c1322
+< Midpoint of E_D at time 182 is $15
+---
+> Midpoint of E_D at time 182 is undefined
+1349c1350
+< Midpoint of E_B at time 187 is $37
+---
+> Midpoint of E_B at time 187 is undefined
+1363c1364
+< Midpoint of E_B at time 189 is $37
+---
+> Midpoint of E_B at time 189 is undefined
+1378c1379
+< Midpoint of E_B at time 190 is $37
+---
+> Midpoint of E_B at time 190 is undefined
+1393c1394
+< Midpoint of E_C at time 193 is $27
+---
+> Midpoint of E_C at time 193 is undefined
+1407c1408
+< Midpoint of E_C at time 194 is $27
+---
+> Midpoint of E_C at time 194 is undefined
+1421,1422c1422,1423
+< Midpoint of E_B at time 195 is $50
+< Midpoint of E_C at time 195 is $27
+---
+> Midpoint of E_B at time 195 is undefined
+> Midpoint of E_C at time 195 is undefined
+1435c1436
+< Midpoint of E_B at time 197 is $50
+---
+> Midpoint of E_B at time 197 is undefined
+1450c1451
+< Midpoint of E_B at time 198 is $50
+---
+> Midpoint of E_B at time 198 is undefined
+1464c1465
+< Midpoint of E_B at time 199 is $50
+---
+> Midpoint of E_B at time 199 is undefined
+1493c1494
+< Midpoint of E_C at time 201 is $37
+---
+> Midpoint of E_C at time 201 is $45
+1496c1497
+< Midpoint of E_F at time 201 is $32
+---
+> Midpoint of E_F at time 201 is undefined
+1500,1503c1501,1504
+< Commission Earnings: $272
+< Total Amount of Money Transferred: $15200
+< Number of Completed Trades: 59
+< Number of Shares Traded: 486
+---
+> Commission Earnings: $274
+> Total Amount of Money Transferred: $15305
+> Number of Completed Trades: 60
+> Number of Shares Traded: 489
+1508c1509
+< C_e bought 214 and sold 3 for a net transfer of $-7455
+---
+> C_e bought 217 and sold 6 for a net transfer of $-7455

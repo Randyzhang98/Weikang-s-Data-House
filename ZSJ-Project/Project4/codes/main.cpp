@@ -8,11 +8,14 @@
 
 using namespace std;
 
-vector<string> ttt_list;
 
 int main (int argc, char * argv[])
 {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
 
+    // double d = clock();
+    
     playground_t & playground = playground_t::getInstance();
 
     bool verbose_flag = false;
@@ -62,6 +65,10 @@ int main (int argc, char * argv[])
     playground.setFlag(verbose_flag, median_flag, midpoint_flag, transfers_flag, ttt_flag);
     playground.stagement();
     playground.conclusion();
+
+    // double r = clock();
+
+     // cout << double ((r-d)/CLOCKS_PER_SEC ) << endl;
 
     return 0;
 }

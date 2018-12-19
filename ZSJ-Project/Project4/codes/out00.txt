@@ -1,0 +1,33 @@
+Midpoint of GOOG at time 0 is undefined
+BUYER_1 purchased 5 shares of GOOG from SELLER_1 for $10/share
+Median match price of GOOG at time 1 is $10
+Midpoint of GOOG at time 1 is undefined
+BUYER_1 purchased 3 shares of GOOG from SELLER_1 for $20/share
+Median match price of GOOG at time 2 is $15
+Midpoint of GOOG at time 2 is undefined
+BUYER_1 purchased 3 shares of GOOG from SELLER_1 for $12/share
+Median match price of GOOG at time 3 is $12
+Midpoint of GOOG at time 3 is undefined
+Median match price of GOOG at time 4 is $12
+Midpoint of GOOG at time 4 is undefined
+BUYER_1 purchased 2 shares of GOOG from SELLER_1 for $8/share
+Median match price of GOOG at time 5 is $11
+Midpoint of GOOG at time 5 is undefined
+Median match price of GOOG at time 6 is $11
+Midpoint of GOOG at time 6 is undefined
+BUYER_1 purchased 4 shares of GOOG from SELLER_1 for $8/share
+Median match price of GOOG at time 7 is $10
+Midpoint of GOOG at time 7 is undefined
+---End of Day---
+Commission Earnings: $0
+Total Amount of Money Transferred: $194
+Number of Completed Trades: 5
+Number of Shares Traded: 17
+BUYER_1 bought 17 and sold 0 for a net transfer of $-194
+SELLER_1 bought 0 and sold 17 for a net transfer of $194
+Time travelers would buy E_A at time: -1 and sell it at time: -1
+Time travelers would buy E_B at time: -1 and sell it at time: -1
+Time travelers would buy E_C at time: -1 and sell it at time: -1
+Time travelers would buy E_D at time: -1 and sell it at time: -1
+Time travelers would buy E_E at time: -1 and sell it at time: -1
+Time travelers would buy GOOG at time: 4 and sell it at time: 7
